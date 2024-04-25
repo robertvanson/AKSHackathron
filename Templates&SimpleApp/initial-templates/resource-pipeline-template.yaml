@@ -1,0 +1,23 @@
+trigger: none
+
+variables:
+- name: example
+  value: "variable"
+
+pool:
+  vmImage: windows-latest
+
+stages:
+- stage: 'Deploy_Stage'
+  jobs:
+  - job: 'Job_name'
+    variables:
+      variable: 'example'
+    steps:
+    - task: PowerShell@2
+      name: 'Deploy_Resources'
+      inputs:
+        targetType: 'inline'
+        script: 'Write-Host "TODO, your Azure CLI code can be placed here...."'
+        ## You may need multiple steps...
+  
